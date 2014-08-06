@@ -1,0 +1,23 @@
+<html>
+
+<script>
+var newIngredient = function() {
+	iForm = document.getElementById('ingredients');
+
+	var input = document.createElement("input");
+	input.type = "text";
+
+//	iForm.innerHTML = "<br>";
+	iForm.appendChild(input);
+	iForm.appendChild(document.createElement("br"));
+
+}
+</script>
+
+<form id="ingredients">
+	<input type="text" name="ingredient1"><br>
+</form>
+
+<button type="button" onclick="newIngredient()">New box</button>
+
+</html>
