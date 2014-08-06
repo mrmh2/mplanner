@@ -39,6 +39,14 @@ class Recipe(object):
 		for method_step in self.method_steps:
 			print method_step.description
 
+	def json_rep(self):
+		dict_rep = {}
+		dict_rep['name'] = self.name
+		dict_rep['ingredients'] = [i.__dict__ for i in self.ingredients]
+		dict_rep['method_steps'] = [m.__dict__ for m in self.method_steps]
+
+		print json.dumps(dict_rep, indent=4, sort_keys=True)
+
 	def __repr__(self):
 		return "<Recipe: %s>" % self.name
 
@@ -83,7 +91,7 @@ def scarf_recipe(recipe_url):
 
 	#recipe.pretty_print()
 
-	print recipe.ingredients[0].__dict__
+	recipe.json_rep()
 
 def main():
 	recipe_url = "http://www.bbc.co.uk/food/recipes/stuffedportobellomus_91403"
